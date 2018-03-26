@@ -17,6 +17,8 @@ public class Product {
     private Status status;
     private Long userId;
 
+    public Product(){};
+
     public Product(String name, float price, String description, Long userId) {
         this.name = name;
         this.price = price;
