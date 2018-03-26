@@ -14,6 +14,8 @@ public class Product {
     private String name;
     private float price;
     private String description;
+
+    @Enumerated(EnumType.STRING)
     private Status status;
     private Long userId;
 

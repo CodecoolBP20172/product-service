@@ -1,3 +1,4 @@
+
 package com.codecool.shitwish.product.service;
 
 import com.codecool.shitwish.product.model.Product;
@@ -12,10 +13,6 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
-
-    public List<Product> getAllProduct(){
-        return productRepository.findAll();
-    }
 
     public void saveProduct(Product product){ productRepository.save(product);}
 

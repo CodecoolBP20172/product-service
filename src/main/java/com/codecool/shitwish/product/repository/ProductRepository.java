@@ -1,3 +1,4 @@
+
 package com.codecool.shitwish.product.repository;
 
 import com.codecool.shitwish.product.model.Product;
