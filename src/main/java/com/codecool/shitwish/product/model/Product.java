@@ -14,8 +14,12 @@ public class Product {
     private String name;
     private float price;
     private String description;
+
+    @Enumerated(EnumType.STRING)
     private Status status;
     private Long userId;
+
+    public Product(){};
 
     public Product(String name, float price, String description, Long userId) {
         this.name = name;

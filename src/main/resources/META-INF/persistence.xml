@@ -19,7 +19,7 @@
 
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/productDB"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>
-            <property name="javax.persistence.jdbc.password" value="jelszo"/>
+            <property name="javax.persistence.jdbc.password" value="Kiskacsa01"/>
         </properties>
     </persistence-unit>
 
