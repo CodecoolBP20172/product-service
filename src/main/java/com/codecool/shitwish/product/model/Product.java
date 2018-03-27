@@ -15,8 +15,8 @@ public class Product {
     private float price;
     private String description;
 
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    private boolean active;
+
     private Long userId;
 
     public Product(){};
@@ -27,7 +27,7 @@ public class Product {
         this.description = description;
         this.userId = userId;
         listOfTags = new ArrayList<>();
-        this.status = Status.ACTIVE;
+        this.active = true;
     }
 
     public List<Tag> getListOfTags() {
@@ -62,12 +62,12 @@ public class Product {
         this.description = description;
     }
 
-    public Status getStatus() {
-        return status;
+    public boolean getActive() {
+        return active;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public void addTag(Tag tag){
