@@ -21,7 +21,7 @@ public class restController {
     @PostMapping("/sell-product")
     public Product sellProduct(@RequestParam("id") Long id) {
         Product product = productRepository.findById(id);
-        if(!product.equals(null)){
+        if(product != null){
             product.setActive(false);
             productRepository.save(product);
         }
