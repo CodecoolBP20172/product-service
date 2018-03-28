@@ -26,9 +26,14 @@ public class restController {
     @PostMapping("/new-product")
     public HttpStatus createProduct(@RequestBody JSONObject req) {
         System.out.println(req);
-//        product.setActive(true);
+        String name = req.getString("name");
+        float price = req.getFloat("price");
+        String description = req.getString("descriiption");
+        long userId = req.getLong("userId");
+        Product newProduct = new Product(name, price, description, userId);
+        newProduct.setActive(true);
+        productRepository.save(newProduct);
         return HttpStatus.OK;
-//                productRepository.save(product);
     }
 
     @PostMapping("/sell-product")
