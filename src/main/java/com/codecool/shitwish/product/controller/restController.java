@@ -4,8 +4,9 @@ import com.codecool.shitwish.product.model.Product;
 import com.codecool.shitwish.product.repository.ProductRepository;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/products")
@@ -14,12 +15,19 @@ public class restController {
     @Autowired
     ProductRepository productRepository;
 
+
     @PostMapping("/new-product")
-    public HttpStatus createProduct(@RequestBody JSONObject req) {
+    public ResponseEntity createProduct(@RequestBody String req) {
         System.out.println(req);
-//        product.setActive(true);
-        return HttpStatus.OK;
-//                productRepository.save(product);
+        JSONObject jsonObject = new JSONObject(req);
+        String name = jsonObject.getString("name");
+        Long price = Long.parseLong(jsonObject.getString("price"));
+        String description = jsonObject.getString("description");
+        long userId = Long.parseLong(jsonObject.getString("userId"));
+        Product newProduct = new Product(name, price, description, userId);
+        newProduct.setActive(true);
+        productRepository.save(newProduct);
+        return ResponseEntity.ok("OK");
     }
 
     @PostMapping("/sell-product")
@@ -31,11 +39,4 @@ public class restController {
         }
         return product;
     }
-
-//    @GetMapping("/products/{status}")
-//    public ResponseEntity getUserforProduct(@PathVariable("status") boolean status) {
-//        List<Product> productList = productRepository.findByActive(status);
-//        productList.forEach(p -> p.setUsername(productService.getUsernameById(p.getUserId())));
-//
-//    }
 }

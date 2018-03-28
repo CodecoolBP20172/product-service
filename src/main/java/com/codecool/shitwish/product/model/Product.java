@@ -12,16 +12,16 @@ public class Product {
     @ManyToMany(fetch=FetchType.LAZY)
     private List<Tag> listOfTags;
     private String name;
-    private float price;
+    private Long price;
     private String description;
 
     private boolean active;
 
     private Long userId;
 
-    public Product(){};
+    public Product(){}
 
-    public Product(String name, float price, String description, Long userId) {
+    public Product(String name, Long price, String description, Long userId) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -46,11 +46,11 @@ public class Product {
         this.name = name;
     }
 
-    public float getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
@@ -81,5 +81,4 @@ public class Product {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
-
 }
